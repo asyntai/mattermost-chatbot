@@ -1,0 +1,54 @@
+{
+    "id": "com.asyntai.chatbot",
+    "name": "Asyntai AI Chatbot",
+    "description": "Ask a question in Mattermost and get an answer built from your own content. Works as a slash command or by messaging the bot directly.",
+    "homepage_url": "https://asyntai.com",
+    "support_url": "https://github.com/asyntai/mattermost-chatbot/issues",
+    "icon_path": "assets/icon.svg",
+    "version": "1.0.0",
+    "min_server_version": "9.0.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "linux-arm64": "server/dist/plugin-linux-arm64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "darwin-arm64": "server/dist/plugin-darwin-arm64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "settings_schema": {
+        "header": "Answers questions from your own content. You need an Asyntai account with a paid plan, because the assistant is reached over the Asyntai API. Get the API key at https://asyntai.com under Settings, API.",
+        "footer": "Ask a question with /asyntai <question>, or send a direct message to the Asyntai bot.",
+        "settings": [
+            {
+                "key": "APIKey",
+                "display_name": "Asyntai API key",
+                "type": "text",
+                "help_text": "From your Asyntai account, under Settings, API. The plugin does nothing until this is filled in.",
+                "secret": true,
+                "default": ""
+            },
+            {
+                "key": "WebsiteID",
+                "display_name": "Website ID (optional)",
+                "type": "text",
+                "help_text": "Leave empty to use your primary website in Asyntai. Set a numeric ID to ask a different one.",
+                "default": ""
+            },
+            {
+                "key": "AllowDirectMessages",
+                "display_name": "Answer direct messages to the bot",
+                "type": "bool",
+                "help_text": "When on, a user can hold a normal conversation with the Asyntai bot in a direct message.",
+                "default": true
+            },
+            {
+                "key": "APIBaseURL",
+                "display_name": "API address (optional)",
+                "type": "text",
+                "help_text": "Leave empty to use https://asyntai.com. Only change this if Asyntai support asks you to.",
+                "default": ""
+            }
+        ]
+    }
+}
